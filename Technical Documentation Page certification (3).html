@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css"/>
+<title>Finance Management Technical Documentation</title>
+<style>
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Sidebar navigation */
+#navbar {
+  width: 230px;
+  background-color: burlywood;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#navbar header {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+#navbar .nav-link {
+  display: block;
+  margin: 10px 0;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+  color: #00bcd4;
+}
+
+#main-doc {
+  margin-left: 270px;
+  padding: 20px;
+  flex: 1;
+}
+
+.main-section {
+  margin-bottom: 40px;
+}
+
+.main-section header {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #1e2a38;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.main-section p, code{
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align:align-items;
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 768px) {
+  #navbar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  #main-doc {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+
+</style>
+</head>
+<body>
+  <nav id="navbar">
+    <header>Finance Management Technical Documentation</header>
+    <ul>
+      <li><a class="nav-link" href="#introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#key_objectives">Key Objectives</a></li>
+      <li><a class="nav-link" href="#features">Features</a></li>
+      <li><a class="nav-link" href="#importance_or_use">Importance or Use</a></li>
+      <li><a class="nav-link" href="#authentication_and_security">Authentication and Security</a></li>
+      <li><a class="nav-link" href="#reporting_module">Reporting Module</a></li>
+      <li><a class="nav-link" href="#error_handling">Error handling</a></li>
+    </ul>
+  </nav>
+<main id="main-doc">
+    <section class="main-section" id="introduction">
+      <header>Introduction</header>
+        <p>Finance management involves planning, organizing, and controlling financial resources.</p>
+        <p>It is used in both personal and organizational contexts.</p>
+    </section>
+
+    <section class="main-section" id="key_objectives">
+      <header>Key Objectives</header>
+        <p>Ensure financial stability and growth.</p>
+        <p>Help users track income and expenses.</p>
+
+        <code>addTransaction('income', 4500, 'Salary');</code>
+
+        <p>Log an expense with category:</p>
+        <code>addTransaction('expense', 120, 'Groceries');</code>
+
+        <p>Set a budget limit per category:</p>
+        <code>setBudgetLimit('Entertainment', 300);</code>
+
+        <p>Generate a monthly financial report:</p>
+        <code>generateReport('2025-07');</code>
+
+        <p>Calculate the savings for a given month:</p>
+        <code>let savings = calculateSavings(income, expenses);</code>    
+</section>
+
+    <section class="main-section" id="features">
+      <header>Features</header>
+        <p>Budget tracking and categorization.</p>
+        <p>Financial goal setting and monitoring.</p>
+   <ul>
+    <li>Track income and expenses</li>
+    <li>Set monthly budgets</li>
+    <li>Generate custom reports</li>
+   </ul>
+    </section>
+
+    <section class="main-section" id="importance_or_use">
+      <header>Importance or Use</header>
+      <p>Use the dashboard to view financial summaries.</p>
+      <p>Enter new transactions under the Transactions tab.</p>
+<pre><code>
+// Example transaction object
+const newTransaction = {
+  type: "expense",
+  category: "Utilities",
+  amount: 120.50,
+  date: "2025-07-14",
+  description: "Electricity bill"
+};
+
+// Function to add transaction
+function addTransaction(transaction) {
+  transaction.id = Date.now(); // Unique ID
+  financeData.transactions.push(transaction);
+  console.log("Transaction added:", transaction);
+}
+
+// Usage
+addTransaction(newTransaction);
+  <ul>
+    <li>Helps control spending</li>
+    <li>Improves financial decision-making</li>
+  </ul>
+  </code></pre>
+</section>
+    <section class="main-section" id="authentication_and_security">
+      <header>Authentication and Security</header>
+        <p>User data is protected using encryption methods.</p>
+        <p>Only registered users can access financial data.</p>
+        <p>Example: Password hashing and verification using bcrypt in Node.js</p>
+        <pre><code>
+// Import bcrypt
+const bcrypt = require('bcrypt');
+
+// Hash a new password
+const plainPassword = "SecureP@ssw0rd";
+const saltRounds = 10;
+
+bcrypt.hash(plainPassword, saltRounds, function(err, hash) {
+  // Save hashed password to database
+  console.log("Hashed password:", hash);
+
+ // Later: verify password
+  bcrypt.compare(plainPassword, hash, function(err, result) {
+    if (result) {
+      console.log("Password matched. Access granted.");
+    } else {
+      console.log("Invalid password.");
+    }
+  });
+});
+  </code></pre>
+    </section>
+    <section class="main-section" id="reporting_module">
+      <header>Reporting Module</header>
+        <p>The Reporting Module in the finance management system is responsible for generating financial statements and summaries.</p>
+        <p>It allows users to view reports such as balance sheets, income statements, and cash flow reports in both tabular and graphical formats.</p>
+        <p>Reports can be filtered by date ranges, departments, and account categories to provide tailored insights.</p>
+        <p>The module supports exporting data to formats like PDF and Excel for external use or compliance reporting.</p>
+        <p>Access to different types of reports can be role-based, ensuring secure and relevant data visibility.</p>
+   <pre><code>
+
+function generateFinancialReport(data) {
+  const totalIncome = data.income.reduce((sum, entry) => sum + entry.amount, 0);
+  const totalExpenses = data.expenses.reduce((sum, entry) => sum + entry.amount, 0);
+  const netBalance = totalIncome - totalExpenses;
+return {
+    totalIncome,
+    totalExpenses,
+    netBalance,
+    generatedAt: new Date().toISOString()
+  };
+}
+// Example usage:
+const report = generateFinancialReport(financialData);
+console.log("Financial Report:", report);</li>
+  </code></pre>
+</section>
+    <section class="main-section" id="error_handling">
+      <header>Error Handling</header> 
+        <p>The Error Handling module ensures that the system can gracefully manage and respond to unexpected issues or failures.</p>
+        <p>It captures runtime errors, logs them for debugging purposes, and displays user-friendly messages without exposing sensitive technical details.</p>
+        <p>Common errors, such as invalid inputs or failed transactions, are handled with clear prompts to guide users on how to correct the issue.</p>
+        <p>The system uses structured logging and error codes to assist developers in identifying the root causes quickly during maintenance.</p>
+        <p>Effective error handling also plays a critical role in maintaining data integrity and improving the overall user experience.</p>
+<pre><code>
+  try {
+  // Simulate transaction processing
+  processTransaction(userInput);
+} catch (error) {
+  console.error("Transaction failed:", error.message);
+  alert("Something went wrong. Please check your input and try again.");
+}
+
+  </code></pre>
+</section>
+  </main>
+</body>
+
+
+
+    
+
+
+
+
+    
+
+
+
+
